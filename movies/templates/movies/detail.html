@@ -9,6 +9,17 @@
 {{genre.name}}
 {% endfor %}
 </p>
+{{movie.genres.all}}
+<br>
+{{movie.actors}}
+
+<p>
+{% for actor in movie.actors.name %}
+{{actor}}
+{% endfor %}
+
+</p>
+
 
 {% for review in reviews %}
 <hr>
