@@ -598,8 +598,6 @@
 		"model": "movies.Movie",
 		"fields": {
 			"title": "Untitled Fox/Marvel Film II",
-			"poster_path": null,
-			"backdrop_path": null,
 			"overview": "",
 			"vote_average": 0,
 			"popularity": 38.788,
@@ -667,7 +665,6 @@
 		"fields": {
 			"title": "Recep \u0130vedik 6",
 			"poster_path": "/1pnGF3bX0giCc9FFXH2CUIyE1hq.jpg",
-			"backdrop_path": null,
 			"overview": "",
 			"vote_average": 1,
 			"popularity": 21.502,
@@ -700,7 +697,6 @@
 		"fields": {
 			"title": "Adan",
 			"poster_path": "/8hwXhsGYPn8Yp02KZlYXoUdPlfP.jpg",
-			"backdrop_path": null,
 			"overview": "",
 			"vote_average": 0,
 			"popularity": 23.877,
@@ -854,7 +850,6 @@
 		"fields": {
 			"title": "La Passion de Marie Madeleine",
 			"poster_path": "/wuhk5jEerfr91wykRFsXrx6WVsD.jpg",
-			"backdrop_path": null,
 			"overview": "",
 			"vote_average": 0,
 			"popularity": 22.409,
@@ -871,7 +866,6 @@
 		"fields": {
 			"title": "Joyeuse retraite !",
 			"poster_path": "/tH6FaX8A9phy6dXGNAWd8nn0NaF.jpg",
-			"backdrop_path": null,
 			"overview": "",
 			"vote_average": 7,
 			"popularity": 23.699,
@@ -887,7 +881,6 @@
 		"fields": {
 			"title": "Nouvelle Cord\u00e9e",
 			"poster_path": "/4sDzoIsjWKRATZukRZUE5gnCkiF.jpg",
-			"backdrop_path": null,
 			"overview": "",
 			"vote_average": 0,
 			"popularity": 22.056,
@@ -1009,7 +1002,6 @@
 		"fields": {
 			"title": "Quand les filles flirtaient avec les Dieux",
 			"poster_path": "/Aufe3aLUxQlv8m4JVq7byEwgG4R.jpg",
-			"backdrop_path": null,
 			"overview": "",
 			"vote_average": 0,
 			"popularity": 21.643,

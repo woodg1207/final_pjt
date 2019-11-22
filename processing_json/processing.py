@@ -15,8 +15,10 @@ for idx, data in enumerate(jdata.get("results")):
     movie["pk"] = idx+1
     movie["model"] = "movies.Movie"
     fields["title"] = data.get("title")
-    fields["poster_path"] = data.get("poster_path")
-    fields["backdrop_path"] = data.get("backdrop_path")
+    if data['poster_path']:
+        fields["poster_path"] = data.get("poster_path")
+    if data['backdrop_path']:
+        fields["backdrop_path"] = data.get("backdrop_path")
     fields["overview"] = data.get("overview")
     fields["vote_average"] = data.get("vote_average")
     fields["popularity"] = data.get("popularity")
@@ -28,8 +30,6 @@ for idx, data in enumerate(jdata.get("results")):
     movie["fields"] = fields
     movies.append(movie)
 
-with open('now_movie.json', 'w', encoding='utf-8') as make:
-    json.dump(movies, make, indent='\t')
 
 genres = []
 for idx, data in enumerate(gdata.get('genres')):
@@ -38,6 +38,10 @@ for idx, data in enumerate(gdata.get('genres')):
     genre['model'] = 'movies.genre'
     genre['feilds'] = data.get('name')
     genres.append(genre)
+
+
+with open('now_movie.json', 'w', encoding='utf-8') as make:
+    json.dump(movies, make, indent='\t')
 
 with open('now_genre.json', 'w', encoding='utf-8') as G:
     json.dump(genres, G, indent='\t')
