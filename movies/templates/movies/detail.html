@@ -5,4 +5,24 @@
 <h1>{{ movie.title }}</h1>
 {{movie.overview}}
 
+{% for review in reviews %}
+<hr>
+<p>
+{{review.content}}
+</p>
+<p>
+{{review.score}}
+</p>
+
+
+{% endfor %}
+
+<hr>
+{% if user.is_authenticated %}
+<form action="{% url 'movies:review_create' movie.pk %}" method="POST">
+  {% csrf_token %}
+  {{ reviewform.as_p }}
+  <input type="submit" value="제출">
+</form>
+{% endif %}
 {% endblock content %}
