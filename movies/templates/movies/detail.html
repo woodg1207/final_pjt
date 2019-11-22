@@ -4,6 +4,11 @@
 
 <h1>{{ movie.title }}</h1>
 {{movie.overview}}
+<p> 장르 : 
+{% for genre in movie.genres.all %}
+{{genre.name}}
+{% endfor %}
+</p>
 
 {% for review in reviews %}
 <hr>

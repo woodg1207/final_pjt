@@ -1,7 +1,9 @@
 import json
 from pprint import pprint
+from decouple import config
+import requests
 
-
+key = config('API_KEY')
 with open('now_playing.json','r', encoding='UTF8') as f:
     jdata = json.load(f)
 
@@ -9,8 +11,12 @@ with open('genre.json', 'r', encoding='UTF8') as g:
     gdata = json.load(g)
 
 movies = []
+actors = []
+
 for idx, data in enumerate(jdata.get("results")):
+    url = 'https://api.themoviedb.org/3/movie/'
     movie = {}
+    actor = {}
     fields = {}
     movie["pk"] = idx+1
     movie["model"] = "movies.Movie"
@@ -29,6 +35,28 @@ for idx, data in enumerate(jdata.get("results")):
     fields["genres"] = genres
     movie["fields"] = fields
     movies.append(movie)
+    # print(data['id'])
+    url += f'{ data["id"] }/credits?api_key={key}'
+    # print(url)
+    res = requests.get(url)
+    res = res.json()
+    actor['pk'] = data['id']
+    actor['model'] = 'movies.Actor'
+    # res.get('cast')
+    a = []
+    b =[]
+    # print(res.get('cast'))
+    for i in range(len(res.get('cast'))):
+        if res.get('cast')[i].get('profile_path'):
+            a.append(res.get('cast')[i].get('profile_path'))
+            b.append(res.get('cast')[i].get('name'))
+    actor['profile_path'] = a
+    actor['name'] = b
+    actors.append(actor)
+
+    # break
+    
+
 
 
 genres = []
@@ -46,3 +74,6 @@ with open('now_movie.json', 'w', encoding='utf-8') as make:
 
 with open('now_genre.json', 'w', encoding='utf-8') as G:
     json.dump(genres, G, indent='\t')
+
+with open('now_actor.json', 'w', encoding='utf-8') as A:
+    json.dump(actors, A, indent='\t')

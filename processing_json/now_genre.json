@@ -1,0 +1,135 @@
+[
+	{
+		"pk": 28,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\uc561\uc158"
+		}
+	},
+	{
+		"pk": 12,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\ubaa8\ud5d8"
+		}
+	},
+	{
+		"pk": 16,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\uc560\ub2c8\uba54\uc774\uc158"
+		}
+	},
+	{
+		"pk": 35,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\ucf54\ubbf8\ub514"
+		}
+	},
+	{
+		"pk": 80,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\ubc94\uc8c4"
+		}
+	},
+	{
+		"pk": 99,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\ub2e4\ud050\uba58\ud130\ub9ac"
+		}
+	},
+	{
+		"pk": 18,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\ub4dc\ub77c\ub9c8"
+		}
+	},
+	{
+		"pk": 10751,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\uac00\uc871"
+		}
+	},
+	{
+		"pk": 14,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\ud310\ud0c0\uc9c0"
+		}
+	},
+	{
+		"pk": 36,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\uc5ed\uc0ac"
+		}
+	},
+	{
+		"pk": 27,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\uacf5\ud3ec"
+		}
+	},
+	{
+		"pk": 10402,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\uc74c\uc545"
+		}
+	},
+	{
+		"pk": 9648,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\ubbf8\uc2a4\ud130\ub9ac"
+		}
+	},
+	{
+		"pk": 10749,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\ub85c\ub9e8\uc2a4"
+		}
+	},
+	{
+		"pk": 878,
+		"model": "movies.genre",
+		"fields": {
+			"name": "SF"
+		}
+	},
+	{
+		"pk": 10770,
+		"model": "movies.genre",
+		"fields": {
+			"name": "TV \uc601\ud654"
+		}
+	},
+	{
+		"pk": 53,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\uc2a4\ub9b4\ub7ec"
+		}
+	},
+	{
+		"pk": 10752,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\uc804\uc7c1"
+		}
+	},
+	{
+		"pk": 37,
+		"model": "movies.genre",
+		"fields": {
+			"name": "\uc11c\ubd80"
+		}
+	}
+]
