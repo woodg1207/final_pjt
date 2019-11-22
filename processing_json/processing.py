@@ -36,7 +36,7 @@ for idx, data in enumerate(gdata.get('genres')):
     genre = {}
     genre['pk'] = data.get('id')
     genre['model'] = 'movies.genre'
-    genre['feilds'] = data.get('name')
+    genre['fields'] = data.get('name')
     genres.append(genre)
 
 
