@@ -1,0 +1,10 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+  <h1>회원정보 변경</h1>
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="변경">
+  </form>
+{% endblock content %}

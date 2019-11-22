@@ -1,0 +1,27 @@
+[
+{
+  "model": "movies.genre",
+  "pk": 1,
+  "fields": {
+    "name": "test"
+  }
+},
+{
+  "model": "movies.movie",
+  "pk": 1,
+  "fields": {
+    "title": "asgsag",
+    "poster_path": "1234",
+    "backdrop_path": "sghdh",
+    "overview": "zxcmvnbklhgioeta;g;ldshgklsehtklsajklkl",
+    "vote_average": 3.0,
+    "popularity": 1000.0,
+    "original_title": "hage",
+    "actors": [],
+    "genres": [
+      1
+    ],
+    "like_users": []
+  }
+}
+]
