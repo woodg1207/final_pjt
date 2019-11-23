@@ -9,16 +9,18 @@
 {{genre.name}}
 {% endfor %}
 </p>
-{{movie.genres.all}}
+
 <br>
-{{movie.actors}}
-
+{% for actor in movie.actors.all %}
 <p>
-{% for actor in movie.actors.name %}
-{{actor}}
-{% endfor %}
-
+{{actor.name}}
+<img src="https://image.tmdb.org/t/p/w200{{actor.profile_path}}" alt="">
 </p>
+
+
+{% endfor %}
+<br>
+
 
 
 {% for review in reviews %}
