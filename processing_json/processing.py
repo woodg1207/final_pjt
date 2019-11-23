@@ -2,10 +2,11 @@ import json
 from pprint import pprint
 from decouple import config
 import requests
+from copy import deepcopy
 
 key = config('API_KEY')
 key = 'c9ce586a25f99f5a58ec0e50547b7b7c'
-with open('now_playing.json','r', encoding='UTF8') as f:
+with open('movie.json','r', encoding='UTF8') as f:
     jdata = json.load(f)
 
 with open('genre.json', 'r', encoding='UTF8') as g:
@@ -35,26 +36,26 @@ for idx, data in enumerate(jdata.get("results")):
     for i in range(len(data.get('genre_ids'))):
        genres.append(data['genre_ids'][i]) 
     fields["genres"] = genres
-    movie["fields"] = fields
-    movies.append(movie)
     url += f'{ data["id"] }/credits?api_key={key}'
-    # print(url)
-    # break
     res = requests.get(url)
     res = res.json()
-    actor['pk'] = idx+1
-    actor['model'] = 'movies.Actor'
-    a = []
-    b =[]
+    a={}
+    b = []
     for i in range(len(res.get('cast'))):
+        if i > 4: break
+        actor['pk'] = (idx*5)+i+1
+        actor['model'] = 'movies.Actor'
         if res.get('cast')[i].get('profile_path'):
-            a.append(res.get('cast')[i].get('profile_path'))
-            b.append(res.get('cast')[i].get('name'))
-    fields_a['profile_path'] = a
-    fields_a['name'] = b
-    actor['fields'] = fields_a
-    actors.append(actor)
-    
+            a['profile_path'] = res.get('cast')[i].get('profile_path')
+            a['name'] = res.get('cast')[i].get('name')
+        actor['fields'] = a
+        k = deepcopy(actor)
+        actors.append(k)
+        b.append((idx*5)+i+1)
+
+    fields["actors"] = b
+    movie["fields"] = fields
+    movies.append(movie)
 
 
 genres = []
