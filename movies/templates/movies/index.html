@@ -3,6 +3,21 @@
 
 {% block content %}
 <h1> 내 영화를 소개 합니다. </h1>
+<hr>
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked> all
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off"> pk:28
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option3" autocomplete="off"> pk:12
+  </label>
+</div>
+
+
+<hr>
 
 {% for movie in movies %}
 <div class="row d-inline-block mb-3">
