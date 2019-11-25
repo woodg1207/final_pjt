@@ -4,6 +4,7 @@ from django.conf import settings
 # Create your models here.
 class Genre(models.Model):
     name = models.CharField(max_length=20)
+    user_prefers = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='genre_prefers', blank=True)
 
 
 class Actor(models.Model):

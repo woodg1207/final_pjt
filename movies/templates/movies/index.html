@@ -4,36 +4,40 @@
 {% block content %}
 <h1> 내 영화를 소개 합니다. </h1>
 <hr>
-<div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary active">
-    <input type="radio" name="options" id="option1" autocomplete="off" checked> all
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option2" autocomplete="off"> pk:28
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option3" autocomplete="off"> pk:12
-  </label>
-</div>
-
-
-<hr>
-
-{% for movie in movies %}
-<div class="row d-inline-block mb-2 ml-1 ">
-  <div class="col">
-    <div class="card" style="width: 18rem;">
-    <a href="{% url 'movies:detail' movie.pk %}">
-      <img src="https://image.tmdb.org/t/p/w400{{ movie.poster_path }}" class="card-img-top" alt="{{ movie.title }}">
-    </a>
-      <div class="card-body">
-        <p class="card-text" style="font-size: 1.2rem;">{{movie.title}}</p>
-        <p class="card-text"></p>
+{% if selected_movies %}
+  {% for movie in selected_movies %}
+    <div class="row d-inline-block mb-2 ml-1 ">
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+        <a href="{% url 'movies:detail' movie.pk %}">
+          <img src="https://image.tmdb.org/t/p/w400{{ movie.poster_path }}" class="card-img-top" alt="{{ movie.title }}">
+        </a>
+          <div class="card-body">
+            <p class="card-text" style="font-size: 1.2rem;">{{movie.title}}</p>
+            <p class="card-text"></p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-{% endfor %}
+  {% endfor %}
+{% else %}
+  {% for movie in movies %}
+    <div class="row d-inline-block mb-2 ml-1 ">
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+        <a href="{% url 'movies:detail' movie.pk %}">
+          <img src="https://image.tmdb.org/t/p/w400{{ movie.poster_path }}" class="card-img-top" alt="{{ movie.title }}">
+        </a>
+          <div class="card-body">
+            <p class="card-text" style="font-size: 1.2rem;">{{movie.title}}</p>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+{% endif %}
+
 
 
 {% endblock content %}

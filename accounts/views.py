@@ -15,7 +15,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
-            return redirect('movies:index')
+            return redirect('movies:select_genre')
     else:
         form = CustomUserCreationForm()
     context = {'form': form,}
@@ -29,7 +29,7 @@ def login(request):
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
             auth_login(request, form.get_user())
-            return redirect(request.GET.get('next') or 'movies:index')
+            return redirect(request.GET.get('next') or 'movies:select_genre')
     else:
         form = AuthenticationForm()
     context = {'form': form,}
