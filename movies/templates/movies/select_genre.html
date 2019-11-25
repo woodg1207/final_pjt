@@ -13,6 +13,9 @@
       </div>
     {% endfor %}
     <input type="submit" value="저장">
+  </form>
+  <form action="" method="POST">
+    {% csrf_token %}
     <input type="submit" value="skip">
   </form>
 {% endblock content %}
