@@ -74,7 +74,7 @@ def change_password(request):
     return render(request, 'accounts/change_password.html', context)
 
 
-
+@login_required
 def detail(request, user_pk):
     person = get_object_or_404(get_user_model(), pk=user_pk)
     context = {'person':person, }
