@@ -13,6 +13,7 @@ def index(request):
     selected_movies = []
     if user_prefers:
         for genre in user_prefers:
+            print(genre.name)
             genres = Genre.objects.filter(pk=genre.pk)
             selected_movies += genres[0].movies.all()
     context = {'movies': movies, 'selected_movies': selected_movies,}
@@ -41,11 +42,18 @@ def review_create(request, movie_pk):
 
 @login_required
 def select_genre(request):
-    if request.user.genre_prefers:
+    user_prefers = request.user.genre_prefers.all()
+    if user_prefers:
         return redirect('movies:index')
     if request.method == 'POST':
+        check_var = request.POST.getlist('checks')
+        if check_var:
+            for value in check_var:
+                value = int(value)
+                genre = get_object_or_404(Genre, pk=value)
+                genre.user_prefers.add(request.user)
         return redirect('movies:index')
     else:
         genres = Genre.objects.all()
         context = {'genres': genres,}
-        return render(request, 'movies/select_genre', context)
+        return render(request, 'movies/select_genre.html', context)
