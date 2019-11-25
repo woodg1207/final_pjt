@@ -10,12 +10,23 @@ from django.contrib.auth import get_user_model
 def index(request):
     user_prefers = request.user.genre_prefers.all()
     movies = Movie.objects.order_by('-vote_average')
+    like_genre_movies = []
+    print('###########')
+    print(request.user.like_movies.all())
+    if request.user.like_movies.all():
+        check= []
+        for movie in request.user.like_movies.all():
+            for genre in movie.genres.all():
+                if genre.name in check: continue
+                check.append(genre.name)
+                like_genre = Genre.objects.filter(pk=genre.pk)
+                like_genre_movies += like_genre[0].movies.all()
     selected_movies = []
     if user_prefers:
         for genre in user_prefers:
             user_genre = Genre.objects.filter(pk=genre.pk)
             selected_movies += user_genre[0].movies.all()
-    context = {'movies': movies, 'selected_movies': selected_movies,}
+    context = {'movies': movies, 'selected_movies': selected_movies, 'like_genre_movies':like_genre_movies}
     return render(request, 'movies/index.html', context)
 
 def detail(request, movie_pk):
@@ -38,7 +49,7 @@ def review_create(request, movie_pk):
                 return redirect('movies:detail', movie_pk)
     return redirect('movies:detail', movie_pk)
 
-
+@login_required
 def select_genre(request):
     user_prefers = request.user.genre_prefers.all()
     if request.method == 'POST':
@@ -62,3 +73,12 @@ def select_genre(request):
         genres = Genre.objects.all()
         context = {'genres': genres,}
         return render(request, 'movies/select_genre.html', context)
+
+@login_required
+def like(request, movie_pk):
+    movie = get_object_or_404(Movie, pk=movie_pk)
+    if movie.like_users.filter(pk=request.user.pk).exists():
+        movie.like_users.remove(request.user)
+    else:
+        movie.like_users.add(request.user)
+    return redirect('movies:index')

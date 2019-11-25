@@ -1,0 +1,24 @@
+{% for movie in movies %}
+    
+    <div class="row d-inline-block mb-2 ml-1 ">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+            <a href="{% url 'movies:detail' movie.pk %}">
+            <img src="https://image.tmdb.org/t/p/w400{{ movie.poster_path }}" class="card-img-top" alt="{{ movie.title }}">
+            </a>
+            <div class="card-body">
+                <p class="card-text" style="font-size: 1.2rem;">{{movie.title}}</p>
+                {% if user  in movie.like_users.all %}
+                <p class="card-text"><a role="button" href="{% url 'movies:like' movie.pk %}" class="btn btn-danger">dislike</a></p>
+                {% else %}
+                <p class="card-text">
+                <a role="button" href="{% url 'movies:like' movie.pk %}" class="btn btn-light">like</a>
+                </p>
+                {% endif %}
+                
+            </div>
+            </div>
+        </div>
+    </div>
+ 
+  {% endfor %}
