@@ -138,7 +138,7 @@ AUTH_USER_MODEL = 'accounts.User'
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = 'movies:index'
+LOGIN_REDIRECT_URL = 'movies:select_genre'
 
-ACCOUNT_LOGOUT_REDIRECT_URL = "movies:index"  # 로그아웃 후 리디렉션 할 페이지
+ACCOUNT_LOGOUT_REDIRECT_URL = "movies:select_genre"  # 로그아웃 후 리디렉션 할 페이지
 ACCOUNT_LOGOUT_ON_GET = True # 로그아웃 버튼 클릭 시 자동 로그아웃

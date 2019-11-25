@@ -2,7 +2,17 @@
 
 {% block content %}
   <h1>좋아하는 장르를 선택하세요</h1>
-  {% for genre in genres %}
-    {{ genre.name }}
-  {% endfor %}
+  <form action="" method="POST">
+    {% csrf_token %}
+    {% for genre in genres %}
+      <div class="form-check" style="font-size: 1.5rem;">
+        <input class="form-check-input" name="checks" type="checkbox" value="{{genre.pk}}" id="{{genre.pk}}">
+        <label class="form-check-label" for="{{genre.pk}}">
+          {{ genre.name }}
+        </label>
+      </div>
+    {% endfor %}
+    <input type="submit" value="저장">
+    <input type="submit" value="skip">
+  </form>
 {% endblock content %}
