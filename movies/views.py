@@ -39,15 +39,17 @@ def review_create(request, movie_pk):
     return redirect('movies:detail', movie_pk)
 
 
-@login_required
 def select_genre(request):
     user_prefers = request.user.genre_prefers.all()
     if request.method == 'POST':
-        check_var = request.POST.getlist('checks')
-        if user_prefers:
+        if len(user_prefers.all()):
             for pre_value in user_prefers:
                 genre = get_object_or_404(Genre, pk=pre_value.pk)
                 genre.user_prefers.remove(request.user)
+            genres = Genre.objects.all()
+            context = {'genres': genres,}
+            return render(request, 'movies/select_genre.html', context)  
+        check_var = request.POST.getlist('checks')
         if check_var:
             for value in check_var:
                 value = int(value)
