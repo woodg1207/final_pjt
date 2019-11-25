@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from django.views.decorators.http import require_POST
@@ -29,7 +29,7 @@ def login(request):
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
             auth_login(request, form.get_user())
-            return redirect(request.GET.get('next') or 'movies:select_genre')
+            return redirect('movies:select_genre')
     else:
         form = AuthenticationForm()
     context = {'form': form,}
@@ -72,3 +72,10 @@ def change_password(request):
         form = PasswordChangeForm(request.user)
     context = {'form': form,}
     return render(request, 'accounts/change_password.html', context)
+
+
+
+def detail(request, user_pk):
+    person = get_object_or_404(get_user_model(), pk=user_pk)
+    context = {'person':person, }
+    return render(request, 'accounts/detail.html', context)
