@@ -1,0 +1,10 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+
+{{person.followers.all}}
+<br>
+<a href="{% url 'accounts:change_password' %}" role="button" class="btn btn-dark">유저 비밀번호 변경</a>
+<a href="{% url 'movies:select_genre' %}" role="button" class="btn btn-dark">선호 장르 변경</a>
+
+{% endblock content %}
