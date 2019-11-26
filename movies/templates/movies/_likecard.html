@@ -1,6 +1,6 @@
-<div id="select" class="carousel slide carousel-fade" data-ride="carousel">
+<div id="like" class="carousel slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner" role="listbox">
-    {% for movie in movies %}
+    {% for movie in like_genre_movies %}
     {% if forloop.first %}
     <div class="carousel-item active">
       <div class=" row d-block m-auto">
@@ -26,11 +26,11 @@
     {% endif %}
 
     {% endfor %}
-    <a class="carousel-control-prev " href="#select" role="button" data-slide="prev">
+    <a class="carousel-control-prev " href="#like" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#select" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#like" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>

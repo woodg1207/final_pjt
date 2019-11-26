@@ -1,0 +1,19 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+<h1 class="text-center">전체 영화</h1>
+<hr>
+<div class="card-group">
+{% for movie in movies %}
+<div class="row m-1">
+<div class="card rounded mb-3" style="width: 18rem;">
+  <a href="{% url 'movies:detail' movie.pk %}"><img class="card-img-top" src="https://image.tmdb.org/t/p/w400{{ movie.poster_path }}" alt="{{ movie.title }}" ></a>
+  <div class="card-body">
+    <p class="card-text text-center"><h5>{{movie.title}}</h5></p>
+  </div>
+</div>
+</div>
+{% endfor %}
+</div>
+
+{% endblock content %}

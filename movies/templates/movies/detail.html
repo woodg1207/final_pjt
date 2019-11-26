@@ -2,7 +2,8 @@
 
 {% block content %}
 
-<h1>{{ movie.title }}</h1>
+<h1 class="text-center">{{ movie.title }}</h1>
+
 <div class="text-center">
   <img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" alt="">
 </div>
@@ -16,6 +17,13 @@
     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
       배우
     </button>
+    <a href="{% url 'movies:like' movie.pk %}">
+        {% if user in movie.like_users.all %}
+          <i class="fas fa-heart" style="color: red"></i>
+        {% else %}
+          <i class="far fa-heart" style="color: black;"></i>
+        {% endif %}
+      </a>
   </p>
   <div class="row">
     <div class="col">
@@ -34,6 +42,7 @@
         </div>
       </div>
     </div>
+    
   </div>
   <!-- actors -->
   <!-- Modal -->
@@ -108,7 +117,6 @@
     {% csrf_token %}
     {{ reviewform.as_p }}
     <button type="submit" class="btn btn-dark">제출</button>
-
   </form>
   {% endif %}
   {% endblock content %}

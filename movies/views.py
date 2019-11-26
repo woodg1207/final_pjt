@@ -11,8 +11,7 @@ def index(request):
     user_prefers = request.user.genre_prefers.all()
     movies = Movie.objects.order_by('-vote_average')
     like_genre_movies = []
-    print('###########')
-    print(request.user.like_movies.all())
+
     if request.user.like_movies.all():
         check= []
         for movie in request.user.like_movies.all():
@@ -81,4 +80,10 @@ def like(request, movie_pk):
         movie.like_users.remove(request.user)
     else:
         movie.like_users.add(request.user)
-    return redirect('movies:index')
+    return redirect('movies:detail', movie_pk)
+
+@login_required
+def all(request):
+    movies = Movie.objects.all()
+    context = {'movies':movies, }
+    return render(request, 'movies/all.html', context)

@@ -2,16 +2,9 @@
 
 {% block content %}
 
-<h3>좋아요한 영화 장르</h3>
-{% for movie in person.like_movies.all %}
-  {% for genre in movie.genres.all %}
-    <p>
-    {{genre.name}}
-    </p>
-  {% endfor %}
-{% endfor %}
 
 
+{% include 'accounts/_detail.html' %}
 <br>
 <a href="{% url 'accounts:change_password' %}" role="button" class="btn btn-dark">유저 비밀번호 변경</a>
 {% if user.genre_prefers.all|length %}

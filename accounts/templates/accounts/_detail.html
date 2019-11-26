@@ -1,0 +1,58 @@
+<div class="accordion " id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link text-dark text-decoration-none" type="button" data-toggle="collapse" data-target="#One" aria-expanded="true"
+          aria-controls="collapseOne">
+          <h3>선호 장르</h3>
+        </button>
+      </h2>
+    </div>
+
+    <div id="One" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        {% for genre in person.genre_prefers.all %}
+        {{genre.name}}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed text-dark text-decoration-none" type="button" data-toggle="collapse" data-target="#collapseTwo"
+          aria-expanded="false" aria-controls="collapseTwo">
+          <h3>좋아요한 영화</h3>
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        {% for movie in person.like_movies.all %}
+        <a class="text-dark text-decoration-none" href="{% url 'movies:detail' movie.pk %}">{{movie.title}}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed text-dark text-decoration-none" type="button" data-toggle="collapse" data-target="#collapseThree"
+          aria-expanded="false" aria-controls="collapseThree">
+          <h3>좋아요한 영화 장르</h3>
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        {% for movie in person.like_movies.all %}
+        {% for genre in movie.genres.all %}
+   
+          {{genre.name}}
+     
+        {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
