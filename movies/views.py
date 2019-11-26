@@ -86,3 +86,38 @@ def all(request):
     movies = Movie.objects.all()
     context = {'movies':movies, }
     return render(request, 'movies/all.html', context)
+
+
+def follow(request, movie_pk, user_pk):
+    person = get_object_or_404(get_user_model(), pk=user_pk)
+    user = request.user
+    if person != user:
+        if person.followers.filter(pk=user.pk).exists():
+            person.followers.remove(user)
+        else:
+            person.followers.add(user)
+    return redirect('movies:detail', movie_pk)
+
+
+@require_POST
+def review_delete(request, movie_pk, review_pk):
+    review = get_object_or_404(Review, pk=review_pk)
+    if request.user == review.user:
+        review.delete()
+    return redirect('movies:detail', movie_pk)
+
+
+def review_update(request, movie_pk, review_pk):
+    review = get_object_or_404(Review, pk=review_pk)
+    if request.user == review.user:
+        if request.method == 'POST':
+            form = ReviewForm(request.POST, instance=review)
+            if form.is_valid():
+                form.save()
+                return redirect('movies:detail', movie_pk)
+        else:
+            form = ReviewForm(instance=review)
+    else:
+        return redirect('movies:detail', movie_pk)
+    context = {'form': form, 'score':review.score,}
+    return render(request, 'movies/review_update.html', context)
