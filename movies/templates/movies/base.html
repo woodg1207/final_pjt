@@ -33,10 +33,10 @@
         </a>
         <br>
         <a class="navbar-brand" href="{% url 'movies:index' %}">
-          <h2> 영화 추천</h2>
+          <h3> 영화 추천</h3>
         </a>
         <a class="navbar-brand" href="{% url 'movies:all' %}">
-          <h2> 영화 목록</h2>
+          <h3> 영화 목록</h3>
         </a>
 
         {% endif %}
@@ -62,7 +62,7 @@
           <h4><a class="nav-link" href="{% url 'accounts:login' %}">log in</a></h4>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'accounts:signup' %}">signup</a>
+          <h4><a class="nav-link" href="{% url 'accounts:signup' %}">signup</a></h4>
         </li>
 
         {% endif %}

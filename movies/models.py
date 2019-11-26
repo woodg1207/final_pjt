@@ -18,6 +18,7 @@ class Movie(models.Model):
     title = models.CharField(max_length=40)
     poster_path = models.CharField(max_length=150)
     backdrop_path = models.CharField(max_length=150)
+    youtube = models.CharField(max_length=150)
     overview = models.TextField()
     vote_average = models.FloatField()
     popularity = models.FloatField()

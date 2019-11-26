@@ -83,7 +83,7 @@ def like(request, movie_pk):
 
 @login_required
 def all(request):
-    movies = Movie.objects.all()
+    movies = Movie.objects.order_by('-vote_average')
     context = {'movies':movies, }
     return render(request, 'movies/all.html', context)
 

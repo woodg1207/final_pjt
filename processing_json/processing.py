@@ -4,7 +4,7 @@ from decouple import config
 import requests
 from copy import deepcopy
 
-key = config('API_KEY')
+# key = config('API_KEY')
 key = 'c9ce586a25f99f5a58ec0e50547b7b7c'
 with open('movie.json','r', encoding='UTF8') as f:
     jdata = json.load(f)
@@ -32,6 +32,14 @@ for idx, data in enumerate(jdata.get("results")):
     fields["vote_average"] = data.get("vote_average")
     fields["popularity"] = data.get("popularity")
     fields["original_title"] = data.get("original_title")
+    youtube_url = f'https://api.themoviedb.org/3/movie/{ data["id"] }/videos?api_key=c9ce586a25f99f5a58ec0e50547b7b7c&language=ko-KR'
+    res_y = requests.get(youtube_url)
+    res_y = res_y.json()
+    for i in res_y.get('results'):
+        if i.get('site') == 'YouTube' and i.get('type') == 'Trailer':
+            fields['youtube'] = i.get('key')
+  
+    ###
     genres = []
     for i in range(len(data.get('genre_ids'))):
        genres.append(data['genre_ids'][i]) 
