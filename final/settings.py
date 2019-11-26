@@ -136,7 +136,8 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"), # Root의 static 파일
-    '/movies/static/',    # garden App의 static 파일
+    '/movies/static/',    # movies App의 static 파일
+    '/accounts/static/',
 )
 
 AUTH_USER_MODEL = 'accounts.User'
