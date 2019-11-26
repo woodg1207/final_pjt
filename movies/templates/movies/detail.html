@@ -59,44 +59,52 @@
   </div>
   <!-- review -->
   {% for review in reviews %}
-  <hr>
-  <p>
-    <b style="font-size: 1.5rem;">{{review.content}}</b> - {{review.user.username}}
-  </p>
-  <p>
-    {{review.score}}점
-  </p>
-  {% if user == review.user %}
-    <div class="d-inline-flex">
-      <form action="{% url 'movies:review_update' movie.pk review.pk %}" class="mr-2">
+    <hr>
+    <p>
+      <b style="font-size: 1.5rem;">{{review.content}}</b> - {{review.user.username}}
+    </p>
+    <p>
+      {{review.score}}점
+    </p>
+    {% if user == review.user %}
+      <form action="{% url 'movies:review_update' movie.pk review.pk %}" class="d-inline-flex" style="width:60px;">
         <input type="submit" class="btn btn-dark" value="수정">
       </form>
-      <form action="{% url 'movies:review_delete' movie.pk review.pk %}" method="POST">
+      <form action="{% url 'movies:review_delete' movie.pk review.pk %}" method="POST" class="d-inline-flex" style="width:60px;">
         {% csrf_token %}
         <input type="submit" class="btn btn-dark" value="삭제">
-      </form>
-    </div>   
-  {% else %}
-    {% if user in review.user.followers.all %}
-      <form action="{% url 'movies:follow' movie.pk review.user_id %}">
-        <input type="submit" value="UnFollow">
-      </form>
+      </form>   
     {% else %}
-      <form action="{% url 'movies:follow' movie.pk review.user_id %}">
-        <input type="submit" value="Following">
-      </form>
+      {% if user in review.user.followers.all %}
+        <form action="{% url 'movies:follow' movie.pk review.user_id %}">
+          <input type="submit" value="UnFollow">
+        </form>
+      {% else %}
+        <form action="{% url 'movies:follow' movie.pk review.user_id %}">
+          <input type="submit" value="Following">
+        </form>
+      {% endif %}
     {% endif %}
-  {% endif %}
   {% endfor %}
-
   <hr>
   {% if user.is_authenticated %}
-  <form action="{% url 'movies:review_create' movie.pk %}" method="POST">
-    {% csrf_token %}
-      <p>content : {{ reviewform.content }}</p>
-      <label for="range">score : </label>
-      <input type="range" class="custom-range bg-dark" min="0" max="10" step="0.1" id="range">
-      <input type="submit" class="btn btn-dark" value="제출">
-  </form>
+    <form action="{% url 'movies:review_create' movie.pk %}" method='POST'>
+      {% csrf_token %}
+      <p>content : {{ reviewform.content }}</p>
+      <p style="display:none">{{ reviewform.score }}</p>
+      <p>score : <input type="text" id="test" value="{{score}}" onKeyUp="keyboard()"></p>
+      <input type="range" onclick="mouse()" class="custom-range bg-dark" min="0" max="10" step="0.1" id="range" value="{{score}}">
+      <input class="btn btn-dark" type="submit" value="저장">
+    </form>  
+    <script>
+      function mouse() {
+        document.getElementById("test").value = document.getElementById("range").value
+        document.getElementById("id_score").value = document.getElementById("range").value
+      }
+      function keyboard() {
+        document.getElementById("range").value = document.getElementById("test").value
+        document.getElementById("id_score").value = document.getElementById("test").value
+      }    
+    </script>
   {% endif %}
   {% endblock content %}
