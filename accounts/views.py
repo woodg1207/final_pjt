@@ -82,8 +82,8 @@ def change_password(request):
 def detail(request, user_pk):
     person = get_object_or_404(get_user_model(), pk=user_pk)
     like_genre_movies = []
+    check= []
     if request.user.like_movies.all():
-        check= []
         for movie in request.user.like_movies.all():
             for genre in movie.genres.all():
                 if genre.name in check: continue

@@ -30,8 +30,15 @@ def index(request):
 def detail(request, movie_pk):
     movie = get_object_or_404(Movie, pk=movie_pk)
     reviews = movie.review_set.all()
+    sum_value = 0.0
+    for review in reviews:
+        sum_value += review.score
+    if len(reviews):
+        average_value = sum_value / len(reviews)
+    else:
+        average_value = 0.0
     reviewform = ReviewForm()
-    context = {'movie':movie, 'reviewform':reviewform, 'reviews': reviews}
+    context = {'movie':movie, 'reviewform':reviewform, 'reviews': reviews, 'average_value': round(average_value, 2),}
     return render(request, 'movies/detail.html', context)
 
 @require_POST

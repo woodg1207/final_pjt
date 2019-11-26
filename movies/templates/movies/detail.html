@@ -1,6 +1,6 @@
 {% extends 'movies/base.html' %}
-
 {% block content %}
+<link rel="stylesheet" href="movie.css">
 
 <h1 class="text-center">{{ movie.title }}</h1>
 
@@ -57,6 +57,8 @@
     aria-hidden="true">
     {% include 'movies/_trailer.html' %}
   </div>
+  <hr>
+  <p>전체 평점 : {{average_value}}</p>
   <!-- review -->
   {% for review in reviews %}
     <hr>
@@ -92,7 +94,7 @@
       {% csrf_token %}
       <p>content : {{ reviewform.content }}</p>
       <p style="display:none">{{ reviewform.score }}</p>
-      <p>score : <input type="text" id="test" value="{{score}}" onKeyUp="keyboard()"></p>
+      <p>score : <input type="number" id="test" min="0.0" max="10.0" step="0.1" value="{{score}}" onKeyUp="keyboard()" onmouseup="deMouse()" onmousedown="pushMouse()"></p>
       <input type="range" onclick="mouse()" class="custom-range bg-dark" min="0" max="10" step="0.1" id="range" value="{{score}}">
       <input class="btn btn-dark" type="submit" value="저장">
     </form>  
@@ -100,6 +102,23 @@
       function mouse() {
         document.getElementById("test").value = document.getElementById("range").value
         document.getElementById("id_score").value = document.getElementById("range").value
+      }
+      var isPressed = false
+      function deMouse() {
+        isPressed = false
+      }
+      function pushMouse() {
+        isPressed = true
+        changeValue()
+      }
+      function changeValue() {
+        if (isPressed) {
+          document.getElementById("range").value = document.getElementById("test").value
+          document.getElementById("id_score").value = document.getElementById("test").value
+          setTimeout(function() {
+            changeValue();
+          }, 50);
+        }
       }
       function keyboard() {
         document.getElementById("range").value = document.getElementById("test").value
