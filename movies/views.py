@@ -11,7 +11,6 @@ def index(request):
     user_prefers = request.user.genre_prefers.all()
     movies = Movie.objects.order_by('-vote_average')
     like_genre_movies = []
-
     if request.user.like_movies.all():
         check= []
         for movie in request.user.like_movies.all():
