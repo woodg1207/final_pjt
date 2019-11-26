@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class Genre(models.Model):
@@ -28,6 +29,6 @@ class Movie(models.Model):
 
 class Review(models.Model):
     content = models.CharField(max_length=150)
-    score = models.IntegerField()
+    score = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(10.0)],)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
