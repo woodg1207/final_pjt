@@ -5,6 +5,10 @@ from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login as auth_login, logout as auth_logout, update_session_auth_hash
+import os, sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# import movies.models
+from movies.models import Genre
 
 # Create your views here.
 def signup(request):
@@ -77,5 +81,14 @@ def change_password(request):
 @login_required
 def detail(request, user_pk):
     person = get_object_or_404(get_user_model(), pk=user_pk)
-    context = {'person':person, }
+    like_genre_movies = []
+    if request.user.like_movies.all():
+        check= []
+        for movie in request.user.like_movies.all():
+            for genre in movie.genres.all():
+                if genre.name in check: continue
+                check.append(genre.name)
+                like_genre = Genre.objects.filter(pk=genre.pk)
+                like_genre_movies += like_genre[0].movies.all()
+    context = {'person':person, 'like_genre_movies': like_genre_movies, 'check':check}
     return render(request, 'accounts/detail.html', context)

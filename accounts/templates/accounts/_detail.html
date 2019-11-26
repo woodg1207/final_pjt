@@ -45,12 +45,8 @@
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body">
-        {% for movie in person.like_movies.all %}
-        {% for genre in movie.genres.all %}
-   
-          {{genre.name}}
-     
-        {% endfor %}
+        {% for genre in check %}
+        {{genre}}
         {% endfor %}
       </div>
     </div>
