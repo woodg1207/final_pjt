@@ -79,11 +79,11 @@
     {% else %}
       {% if user in review.user.followers.all %}
         <form action="{% url 'movies:follow' movie.pk review.user_id %}">
-          <input type="submit" value="UnFollow">
+          <button type="submit" class="btn btn-outline-dark">UnFollow</button>
         </form>
       {% else %}
         <form action="{% url 'movies:follow' movie.pk review.user_id %}">
-          <input type="submit" value="Following">
+          <button type="submit" class="btn btn-dark btn-outline-light">Follow</button>
         </form>
       {% endif %}
     {% endif %}
