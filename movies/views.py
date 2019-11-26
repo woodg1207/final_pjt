@@ -114,9 +114,7 @@ def review_update(request, movie_pk, review_pk):
         if request.method == 'POST':
             form = ReviewForm(request.POST, instance=review)
             if form.is_valid():
-                new = form.save(commit=False)
-                new.score = float(request.POST.getlist('review_score')[0])
-                new.save()
+                form.save()
                 return redirect('movies:detail', movie_pk)
         else:
             form = ReviewForm(instance=review)

@@ -4,6 +4,7 @@
   <form action="" method='POST'>
     {% csrf_token %}
     <p>content : {{ form.content }}</p>
+    <p style="display:none">{{ form.score }}</p>
     <p>score : <input type="text" id="test" value="{{score}}" onKeyUp="keyboard()"></p>
     <input type="range" onclick="mouse()" class="custom-range bg-dark" min="0" max="10" step="0.1" id="range" value="{{score}}">
     <input class="btn btn-dark" type="submit" value="저장">
@@ -11,9 +12,11 @@
   <script>
     function mouse() {
       document.getElementById("test").value = document.getElementById("range").value
+      document.getElementById("id_score").value = document.getElementById("range").value
     }
     function keyboard() {
       document.getElementById("range").value = document.getElementById("test").value
+      document.getElementById("id_score").value = document.getElementById("test").value
     }    
   </script>
 {% endblock content %}
