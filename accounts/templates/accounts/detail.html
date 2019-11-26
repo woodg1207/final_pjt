@@ -1,12 +1,32 @@
 {% extends 'movies/base.html' %}
 
 {% block content %}
-
-
-
 {% include 'accounts/_detail.html' %}
 <br>
+<hr>
+<h4 class="text-center">like user</h4>
+<div class="card-columns">
+{% for f in person.followings.all %}
+<div class="card border-dark " style="max-width: 18rem;">
+  <div class="card-header">User name : {{f}}</div>
+  <div class="card-body text-dark">
+    <h5 class="card-title">{{f}}'s like movie</h5>
+      {% for m in f.like_movies.all %}
+    <p class="card-text">
+        <a class="text-decoration-none text-dark"href="{% url 'movies:detail' m.pk %}">
+        #{{m.title}}     
+        </a>
+    </p>
+      {% endfor %}
+  </div>
+</div>
+{% endfor %}
+</div>
+
+<hr>
 <a href="{% url 'accounts:change_password' %}" role="button" class="btn btn-dark">유저 비밀번호 변경</a>
+<br>
+<br>
 {% if user.genre_prefers.all|length %}
   <form action="{% url 'movies:select_genre' %}" method="POST">
     {% csrf_token %}

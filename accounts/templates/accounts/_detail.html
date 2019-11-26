@@ -12,7 +12,7 @@
     <div id="One" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
         {% for genre in person.genre_prefers.all %}
-        {{genre.name}}
+        #{{genre.name}}
         {% endfor %}
       </div>
     </div>
@@ -29,7 +29,9 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
       <div class="card-body">
         {% for movie in person.like_movies.all %}
-        <a class="text-dark text-decoration-none" href="{% url 'movies:detail' movie.pk %}">{{movie.title}}</a>
+        <p>
+        <a class="text-dark text-decoration-none" href="{% url 'movies:detail' movie.pk %}"> #{{movie.title}}</a>
+        </p>
         {% endfor %}
       </div>
     </div>
@@ -46,7 +48,7 @@
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body">
         {% for genre in check %}
-        {{genre}}
+        #{{genre}}
         {% endfor %}
       </div>
     </div>
