@@ -3,6 +3,7 @@
 {% block content %}
 <h1 class="text-center">전체 영화</h1>
 <hr>
+<div class="justify-content-center">
 <div class="card-group">
 {% for movie in movies %}
 <div class="row m-1">
@@ -14,6 +15,7 @@
 </div>
 </div>
 {% endfor %}
+</div>
 </div>
 
 {% endblock content %}
