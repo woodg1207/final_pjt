@@ -1,5 +1,5 @@
 
-.container {
+.genre {
   max-width: 640px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 13px;
@@ -50,7 +50,8 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label .fa-check {
   font-variant: normal;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
-  font-size: 12px;
+  font-size: 12px;  
+  padding: 2px 6px 2px 2px;
   transform: rotate(-360deg);
   transition: transform .3s ease-in-out;
 }
