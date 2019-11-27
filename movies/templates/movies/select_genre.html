@@ -1,14 +1,14 @@
 {% extends 'movies/base.html' %}
 {% block css %}
-  <div class="container ml-5" style="max-width: 640px;">
+  <div class="container ml-5" style="max-width: 600px;">
     <h1>좋아하는 장르를 선택하세요</h1>
-    <form action="" method="POST">
+    <form action="" method="POST" class="mt-4">
       {% csrf_token %}
       {% for genre in genres %}
         <div class="form-check d-inline-flex">
           <ul class="ks-cboxtags p-0">
             <li><input class="form-check-input" name="checks" type="checkbox" id="{{genre.pk}}" value="{{genre.pk}}">
-              <label for="{{genre.pk}}">{{ genre.name }}</label></li>
+              <label for="{{genre.pk}}"><i class="fas fa-plus" style="font-size: 1.5rem;"></i><i class="fas fa-check" style="font-size: 1.5rem;"></i><b>{{ genre.name }}</b></label></li>
           </ul>
         </div>
       {% endfor %}
