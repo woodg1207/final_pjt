@@ -48,7 +48,7 @@ def logout(request):
 @require_POST
 def delete(request):
     request.user.delete()
-    return redirect('movies:index')
+    return redirect('movies:select_genre')
 
 
 @login_required
