@@ -42,7 +42,7 @@ def login(request):
 
 def logout(request):
     auth_logout(request)
-    return redirect('movies:index')
+    return redirect('movies:select_genre')
     
 
 @require_POST
