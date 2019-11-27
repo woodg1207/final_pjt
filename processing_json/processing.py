@@ -5,7 +5,7 @@ import requests
 from copy import deepcopy
 
 # key = config('API_KEY')
-key = 'c9ce586a25f99f5a58ec0e50547b7b7c'
+key = ''
 with open('movie.json','r', encoding='UTF8') as f:
     jdata = json.load(f)
 
