@@ -1,6 +1,5 @@
 {% extends 'movies/base.html' %}
 {% block content %}
-<link rel="stylesheet" href="movie.css">
 
 <h1 class="text-center">{{ movie.title }}</h1>
 
@@ -55,7 +54,7 @@
   </div>
   <div class="modal fade" id="trailer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    {% include 'movies/_trailer.html' %}
+    {% include 'movies/_allmovie_modal.html' %}    
   </div>
   <hr>
   <p>전체 평점 : {{average_value}}</p>
@@ -123,7 +122,8 @@
       function keyboard() {
         document.getElementById("range").value = document.getElementById("test").value
         document.getElementById("id_score").value = document.getElementById("test").value
-      }    
+      }          
+      
     </script>
   {% endif %}
   {% endblock content %}
