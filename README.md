@@ -47,59 +47,59 @@
 
 #### 2-2-1 NOTION(개발 일지)
 
-![](C:\Users\student\Desktop\project-img\notion1.JPG)
+![notion1](https://user-images.githubusercontent.com/52685244/69788825-9eb33280-1202-11ea-9c0c-024c6f650446.JPG)
 
-![](C:\Users\student\Desktop\project-img\notion2.JPG)
+![notion2](https://user-images.githubusercontent.com/52685244/69788826-9eb33280-1202-11ea-9779-8b6501f6c8b6.JPG)
 
 #### 2-2-2 프로젝트 구성 화면
 
 - 로그인 화면
 
-![](C:\Users\student\Desktop\project-img\login.JPG)
+![login](https://user-images.githubusercontent.com/52685244/69788822-9e1a9c00-1202-11ea-9be9-0363402ac694.JPG)
 
 - 영화 추천 & 전체 영화
 
   - 영화 추천 
 
-  ![](C:\Users\student\Desktop\project-img\m.JPG)
+![m](https://user-images.githubusercontent.com/52685244/69788823-9e1a9c00-1202-11ea-99d5-4236738ebe09.JPG)
 
   - 전체 영화
 
-  ![](C:\Users\student\Desktop\project-img\m2.JPG)
+![m2](https://user-images.githubusercontent.com/52685244/69788824-9eb33280-1202-11ea-85da-7bfc745f703b.JPG)
 
 - 영화 세부사항
 
   - 기본구성
 
-  ![](C:\Users\student\Desktop\project-img\d1.JPG)
+![d1](https://user-images.githubusercontent.com/52685244/69788814-9ce96f00-1202-11ea-840a-e37b7a11c918.JPG)
 
   - 영화 트레일러 & 배우
 
-  <img src="C:\Users\student\Desktop\project-img\d2.JPG" style="zoom: 67%;" />
+![d2](https://user-images.githubusercontent.com/52685244/69788816-9d820580-1202-11ea-9d6a-e073fa4183a8.JPG)
 
-  <img src="C:\Users\student\Desktop\project-img\d3.JPG" style="zoom: 67%;" />
+![d3](https://user-images.githubusercontent.com/52685244/69788817-9d820580-1202-11ea-85ff-b6da98e0a72b.JPG)
 
   - 댓글(수정&삭제, follow 기능)
 
-  ![](C:\Users\student\Desktop\project-img\d4.JPG)
+![d4](https://user-images.githubusercontent.com/52685244/69788818-9d820580-1202-11ea-8ec3-50dab9d57663.JPG)
 
 - 사용자 정보
 
   - 기본 화면
 
-  ![](C:\Users\student\Desktop\project-img\u1.JPG)
+![u1](https://user-images.githubusercontent.com/52685244/69788828-9f4bc900-1202-11ea-8182-53ac1c50660f.JPG)
 
   - 선호 장르 수정
 
-  ![](C:\Users\student\Desktop\project-img\u2.JPG)
+![u2](https://user-images.githubusercontent.com/52685244/69788829-9f4bc900-1202-11ea-8781-f9947cdb264e.JPG)
 
   - 유저 비밀번호 변경
 
-  ![](C:\Users\student\Desktop\project-img\u3.JPG)
+![u3](https://user-images.githubusercontent.com/52685244/69788830-9f4bc900-1202-11ea-93f7-d728119d2c03.JPG)
 
 ## 3. 프로젝트 ERD
 
-![](C:\Users\student\Desktop\project-img\snapshot.png)
+![snapshot](https://user-images.githubusercontent.com/52685244/69788827-9f4bc900-1202-11ea-9877-cac6f443998f.png)
 
 ## 4. 배포 서버 URL
 
