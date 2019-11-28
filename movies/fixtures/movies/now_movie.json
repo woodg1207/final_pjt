@@ -2175,30 +2175,6 @@
 		}
 	},
 	{
-		"pk": 87,
-		"model": "movies.Movie",
-		"fields": {
-			"title": "Handjob Cabin",
-			"poster_path": "/tkFZmf2HbONsLaU6OEJ9ebCMQ8R.jpg",
-			"backdrop_path": "/sCst6jmIUq1pnKr5gCSnuPMxNJJ.jpg",
-			"overview": "",
-			"vote_average": 10,
-			"popularity": 36.746,
-			"original_title": "Handjob Cabin",
-			"genres": [
-				35,
-				27
-			],
-			"actors": [
-				431,
-				432,
-				433,
-				434,
-				435
-			]
-		}
-	},
-	{
 		"pk": 88,
 		"model": "movies.Movie",
 		"fields": {
