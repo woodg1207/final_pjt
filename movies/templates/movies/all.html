@@ -8,10 +8,8 @@
 {% for movie in movies %}
 <div class="row m-1">
 <div class="card rounded mb-2" style="width: 13rem; ">
-  <a href="{% url 'movies:detail' movie.pk %}"><img class="card-img-top" src="https://image.tmdb.org/t/p/w400{{ movie.poster_path }}" alt="{{ movie.title }}" ></a>
-  <div class="card-body">
-    <p class="card-text text-center"><h5>{{movie.title}}</h5></p>
-  </div>
+  <a href="{% url 'movies:detail' movie.pk %}" ><img data-toggle="tooltip" data-placement="right" title="{{movie.title}}" class="card-img-top" src="https://image.tmdb.org/t/p/w400{{ movie.poster_path }}" alt="{{ movie.title }}" ></a>
+
 </div>
 </div>
 {% endfor %}
