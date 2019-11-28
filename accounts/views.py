@@ -54,7 +54,6 @@ def delete(request):
 
 @login_required
 def update(request):
-    
     if request.method == 'POST':
         form = CustomUserChangeForm(request.POST, instance=request.user)
         if form.is_valid():
