@@ -56,6 +56,7 @@ def review_create(request, movie_pk):
 
 @login_required
 def select_genre(request):
+    # select genres
     user_prefers = request.user.genre_prefers.all()
     if request.method == 'POST':
         if len(user_prefers.all()):
