@@ -10,6 +10,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # import movies.models
 from movies.models import Genre
 
+
 # Create your views here.
 def signup(request):
     if request.user.is_authenticated:
