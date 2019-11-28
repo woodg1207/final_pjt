@@ -16,7 +16,7 @@
     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#actor">
       배우
     </button>
-    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#trailer">
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#trailer" onclick="check()">
       트레일러
     </button>
     <a href="{% url 'movies:like' movie.pk %}">
@@ -98,6 +98,11 @@
       <input class="btn btn-dark" type="submit" value="저장">
     </form>  
     <script>
+    function check() {
+      $("#trailer").on('hidden.bs.modal', function (e) {
+        $("#trailer iframe").attr("src", $("#trailer iframe").attr("src"));
+      });
+    }      
       function mouse() {
         document.getElementById("test").value = document.getElementById("range").value
         document.getElementById("id_score").value = document.getElementById("range").value

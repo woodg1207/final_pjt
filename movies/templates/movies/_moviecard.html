@@ -1,11 +1,11 @@
-<div id="select" class="carousel slide carousel-fade" data-ride="carousel">
+<div id="select" class="carousel slide " data-ride="carousel">
   <div class="carousel-inner" role="listbox">
     {% for movie in movies %}
     {% if forloop.first %}
     <div class="carousel-item active">
       <div class=" row d-block m-auto">
         <div class="col text-center">
-          <h3 class="text-center">{{movie.title}}</h3>
+          <h3 class="text-center mt-1">{{movie.title}}</h3>
           <a href="{% url 'movies:detail' movie.pk %}">
             <img src="https://image.tmdb.org/t/p/w400{{ movie.poster_path }}" alt="{{ movie.title }}" >
           </a>
@@ -16,7 +16,7 @@
     <div class="carousel-item">
       <div class="row">
         <div class="col text-center">
-          <h3 class="text-center">{{movie.title}}</h3>
+          <h3 class="text-center mt-1">{{movie.title}}</h3>
           <a href="{% url 'movies:detail' movie.pk %}">
             <img src="https://image.tmdb.org/t/p/w400{{ movie.poster_path }}" alt="{{ movie.title }}">
           </a>

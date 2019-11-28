@@ -10,7 +10,7 @@
 <div class="card border-dark " style="max-width: 18rem;">
   <div class="card-header">User name : {{f}}</div>
   <div class="card-body text-dark">
-    <h5 class="card-title">{{f}}'s like movie</h5>
+    <h5 class="card-title">{{f}}'s pick</h5>
       {% for m in f.like_movies.all %}
     <p class="card-text">
         <a class="text-decoration-none text-dark"href="{% url 'movies:detail' m.pk %}">

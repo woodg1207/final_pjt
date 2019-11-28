@@ -15,8 +15,11 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Sunflower:300,500&display=swap" rel="stylesheet">
   <style>
+  @font-face { font-family: '양진체'; src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff'); font-weight: normal; font-style: normal; }
+  
     body {
-      font-family: 'Sunflower', sans-serif;
+      
+      font-family: '양진체';
       background-color: #E1E1E1;
       background-image: url("https://cdn.pixabay.com/photo/2013/07/12/13/29/film-147137_960_720.png");
       background-repeat: no-repeat;
@@ -38,11 +41,11 @@
           <h1>Hello! {{user}} :D</h1>
         </a>
         <br>
-        <a class="navbar-brand" href="{% url 'movies:index' %}">
-          <h3> 영화 추천</h3>
+        <a role="button" class=" btn border-0 btn-outline-dark" href="{% url 'movies:index' %}">
+          <h3 class="mb-0 mt-2"> 영화 추천</h3>
         </a>
-        <a class="navbar-brand" href="{% url 'movies:all' %}">
-          <h3> 영화 목록</h3>
+        <a role="button" class=" btn border-0 btn-outline-dark" href="{% url 'movies:all' %}">
+          <h3 class="mb-0 mt-2"> 영화 목록</h3>
         </a>
 
         {% endif %}
